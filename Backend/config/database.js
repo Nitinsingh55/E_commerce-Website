@@ -18,8 +18,9 @@ pool.on('error', (err, client) => {
 
 const connectDB = async () => {
     try {
-        await pool.connect();
+        const client = await pool.connect();
         console.log('PostgreSQL connected');
+        client.release();
     } catch (err) {
         console.error('Database connection error', err);
         process.exit(1);
