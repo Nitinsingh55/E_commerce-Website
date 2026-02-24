@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_API_URL || 'https://e-commerce-website-ym40.onrender.com/api',
 })
 
 // Request interceptor to add token
@@ -36,7 +36,7 @@ export const getImageUrl = (path) => {
   if (!path) return '/placeholder.jpg';
   if (path.startsWith('http')) return path;
   // Remove /api from base URL to get backend root
-  const base = import.meta.env.VITE_API_URL.replace('/api', '');
+  const base = (import.meta.env.VITE_API_URL || 'https://e-commerce-website-ym40.onrender.com/api').replace('/api', '');
   return `${base}${path}`;
 };
 
