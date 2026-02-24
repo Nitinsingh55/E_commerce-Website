@@ -101,4 +101,8 @@ async function initDB() {
     }
 }
 
-initDB();
+if (require.main === module) {
+    initDB();
+} else {
+    module.exports = initDB;
+}

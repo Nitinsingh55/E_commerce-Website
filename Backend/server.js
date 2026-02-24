@@ -27,11 +27,15 @@ app.use('/api/categories', require('./routes/categoryRoutes'));
 // Database initialization
 app.get('/api/setup', async (req, res) => {
     try {
-        require('./scripts/initDB');
-        require('./scripts/seedProducts');
-        res.send('Database initialization started. Check Render logs for progress.');
+        const initDB = require('./scripts/initDB');
+        const seedProducts = require('./scripts/seedProducts');
+
+        await initDB();
+        await seedProducts();
+
+        res.send('Database initialization and seeding completed successfully!');
     } catch (err) {
-        res.status(500).send('Error starting database initialization: ' + err.message);
+        res.status(500).send('Error during database setup: ' + err.message);
     }
 });
 

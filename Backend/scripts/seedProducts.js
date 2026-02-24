@@ -838,4 +838,11 @@ async function seedDatabase() {
     }
 }
 
-seedDatabase();
+if (require.main === module) {
+    seedDatabase().then(() => {
+        console.log('Seeding complete.');
+        process.exit(0);
+    });
+} else {
+    module.exports = seedDatabase;
+}
