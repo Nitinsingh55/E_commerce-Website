@@ -12,6 +12,10 @@ const pool = new Pool({
     ssl: process.env.DB_HOST && process.env.DB_HOST.includes('neon.tech') ? { rejectUnauthorized: false } : false
 });
 
+pool.on('error', (err, client) => {
+    console.error('Unexpected error on idle PostgreSQL client', err);
+});
+
 const connectDB = async () => {
     try {
         await pool.connect();
