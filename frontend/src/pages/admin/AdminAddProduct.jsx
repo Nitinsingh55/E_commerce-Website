@@ -20,20 +20,20 @@ const AdminAddProduct = () => {
     fetchCategories()
   }, [])
 
- const fetchCategories = async () => {
-  try {
-    const { data } = await api.get('/categories')
-    if (Array.isArray(data)) {
-      setCategories(data)
-    } else {
-      console.error('Categories data is not an array:', data)
+  const fetchCategories = async () => {
+    try {
+      const { data } = await api.get('/categories')
+      if (Array.isArray(data)) {
+        setCategories(data)
+      } else {
+        console.error('Categories data is not an array:', data)
+        setCategories([])
+      }
+    } catch (error) {
+      console.error('Failed to fetch categories', error)
       setCategories([])
     }
-  } catch (error) {
-    console.error('Failed to fetch categories', error)
-    setCategories([])
   }
-}
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -49,7 +49,7 @@ const AdminAddProduct = () => {
 
     const data = new FormData()
     Object.keys(formData).forEach(key => data.append(key, formData[key]))
-    if (image) data.append('image', image)
+    if (image) data.append('images', image)
 
     try {
       await api.post('/products', data, {
