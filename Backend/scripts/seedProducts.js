@@ -835,7 +835,6 @@ async function seedDatabase() {
         console.error('❌ FAILED:', err);
     } finally {
         client.release();
-        await pool.end();
     }
 }
 

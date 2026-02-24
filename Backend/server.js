@@ -22,7 +22,18 @@ app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/cart', require('./routes/cartRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
-app.use('/api/categories', require('./routes/categoryRoutes')); 
+app.use('/api/categories', require('./routes/categoryRoutes'));
+
+// Database initialization
+app.get('/api/setup', async (req, res) => {
+    try {
+        require('./scripts/initDB');
+        require('./scripts/seedProducts');
+        res.send('Database initialization started. Check Render logs for progress.');
+    } catch (err) {
+        res.status(500).send('Error starting database initialization: ' + err.message);
+    }
+});
 
 // Error handling middleware
 app.use(errorHandler);
