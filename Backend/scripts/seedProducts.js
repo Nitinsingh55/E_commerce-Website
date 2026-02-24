@@ -743,6 +743,13 @@ async function seedDatabase() {
     try {
         console.log('\n🌱 MAISON Product Seeder — Verified Unsplash Images\n');
 
+        // 0. Check if already seeded
+        const { rows: countRows } = await client.query('SELECT COUNT(*) FROM products');
+        if (parseInt(countRows[0].count) > 0) {
+            console.log('Products already exist. Skipping seed process.');
+            return;
+        }
+
         // 1. Clear (keep users)
         console.log('🗑️  Clearing products & categories (keeping users)...');
         await client.query('DELETE FROM order_items');

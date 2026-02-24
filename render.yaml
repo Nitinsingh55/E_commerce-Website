@@ -3,7 +3,7 @@ services:
     name: maison-backend
     env: node
     rootDir: Backend
-    buildCommand: npm install
+    buildCommand: npm install && node scripts/initDB.js && node scripts/seedProducts.js
     startCommand: node server.js
     envVars:
       - key: DB_HOST
