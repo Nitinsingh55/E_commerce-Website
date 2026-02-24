@@ -1,0 +1,50 @@
+/* CategoryStrip.css */
+.category-strip {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border-gray);
+  overflow: hidden;
+}
+
+.category-strip-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 4px 2px;
+}
+
+.category-strip-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--light-gray);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.cat-pill:hover {
+  background: var(--white);
+  border-color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cat-icon {
+  font-size: 18px;
+}
+
+.cat-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+}

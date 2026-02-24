@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: maison-backend
+    env: node
+    rootDir: Backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: maison-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: maison-db
+          property: port
+      - key: DB_USER
+        fromDatabase:
+          name: maison-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: maison-db
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: maison-db
+          property: database
+      - key: PORT
+        value: 5000
+
+  - type: psql
+    name: maison-db
+    plan: free
