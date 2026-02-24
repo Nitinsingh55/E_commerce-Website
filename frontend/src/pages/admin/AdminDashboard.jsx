@@ -17,7 +17,7 @@ const StatCard = ({ label, value, icon, sub }) => (
   </div>
 )
 
-const API_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000'
+const API_URL = import.meta.env.VITE_API_URL?.replace(/\/api$/, '') || 'https://e-commerce-website-ym40.onrender.com'
 
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null)

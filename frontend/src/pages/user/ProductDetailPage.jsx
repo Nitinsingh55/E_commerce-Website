@@ -5,7 +5,7 @@ import { useCart } from '../../context/CartContext'
 import ProductCard from '../../components/ProductCard'
 import './productDetail.css'
 
-const API_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000'
+const API_URL = import.meta.env.VITE_API_URL?.replace(/\/api$/, '') || 'https://e-commerce-website-ym40.onrender.com'
 
 const getImageUrl = (url) => {
   if (!url) return 'https://placehold.co/600x700/f5f5f5/999?text=No+Image'
