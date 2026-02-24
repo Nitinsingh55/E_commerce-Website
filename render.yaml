@@ -1,3 +1,7 @@
+databases:
+  - name: maison-db
+    plan: free
+
 services:
   - type: web
     name: maison-backend
@@ -28,7 +32,3 @@ services:
           property: database
       - key: PORT
         value: 5000
-
-  - type: psql
-    name: maison-db
-    plan: free
