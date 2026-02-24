@@ -37,8 +37,8 @@ const AdminProducts = () => {
   return (
     <div className="admin-products">
       <div className="page-header">
-         <h1>Manage Products</h1>
-         <Link to="/admin/products/add" className="btn-primary">+ Add New Product</Link>
+        <h1>Manage Products</h1>
+        <Link to="/admin/products/add" className="btn btn-primary">+ Add New Product</Link>
       </div>
       <table className="products-table">
         <thead>
