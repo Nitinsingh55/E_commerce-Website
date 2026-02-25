@@ -99,7 +99,7 @@ const OrdersPage = () => {
                                         </div>
                                         <div className="meta-item mobile-hidden">
                                             <span className="meta-label">Order ID</span>
-                                            <span className="meta-value order-id">#{order.id.slice(0, 8)}...</span>
+                                            <span className="meta-value order-id">#{String(order.id).slice(0, 8)}</span>
                                         </div>
                                     </div>
                                     <div className="order-actions">
