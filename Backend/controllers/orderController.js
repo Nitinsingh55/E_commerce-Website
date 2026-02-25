@@ -81,6 +81,13 @@ const createOrder = async (req, res, next) => {
 const getMyOrders = async (req, res, next) => {
     try {
         const orders = await Order.findByUser(req.user.id);
+
+        // Fetch items for each order
+        for (let order of orders) {
+            const items = await OrderItem.findByOrder(order.id);
+            order.items = items;
+        }
+
         res.json(orders);
     } catch (error) {
         next(error);

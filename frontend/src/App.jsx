@@ -11,6 +11,7 @@ import ProductDetailPage from './pages/user/ProductDetailPage'
 import CartPage from './pages/user/CartPage'
 import CheckoutPage from './pages/user/CheckoutPage'
 import OrderConfirmationPage from './pages/user/OrderConfirmationPage'
+import OrdersPage from './pages/user/OrdersPage'
 import RegisterPage from './pages/user/RegisterPage'
 import LoginPage from './pages/user/LoginPage'
 import AdminLoginPage from './pages/admin/AdminLoginPage'
@@ -53,6 +54,7 @@ function App() {
             {/* Protected user routes */}
             <Route path="/checkout" element={<UserRoute><UserPageLayout><CheckoutPage /></UserPageLayout></UserRoute>} />
             <Route path="/order-confirmation/:id" element={<UserRoute><UserPageLayout><OrderConfirmationPage /></UserPageLayout></UserRoute>} />
+            <Route path="/orders" element={<UserRoute><UserPageLayout><OrdersPage /></UserPageLayout></UserRoute>} />
 
             {/* Admin routes */}
             <Route path="/admin/login" element={<AdminLoginPage />} />

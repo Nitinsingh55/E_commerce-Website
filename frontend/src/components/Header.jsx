@@ -100,6 +100,7 @@ const Header = () => {
                 </button>
                 <div className="user-dropdown">
                   {isAdmin && <Link to="/admin" className="dropdown-item">Admin Panel</Link>}
+                  <Link to="/orders" className="dropdown-item">My Orders</Link>
                   <button className="dropdown-item" onClick={logout}>Logout</button>
                 </div>
               </div>
@@ -163,6 +164,7 @@ const Header = () => {
           {isAuthenticated ? (
             <>
               {isAdmin && <Link to="/admin" className="mobile-cat-link" onClick={() => setMobileMenuOpen(false)}>Admin Panel</Link>}
+              <Link to="/orders" className="mobile-cat-link" onClick={() => setMobileMenuOpen(false)}>My Orders</Link>
               <button className="mobile-cat-link" onClick={() => { logout(); setMobileMenuOpen(false); }}>Logout</button>
             </>
           ) : (
