@@ -2,6 +2,8 @@
 
 A modern, full-stack e-commerce platform built with React, Node.js, Express, and PostgreSQL. It features a stunning UI, full shopping cart functionality, a robust admin panel, and secure database authentication.
 
+https://maisonshopping.netlify.app/
+
 ## 🚀 Tech Stack
 
 - **Frontend:** React, Vite, React Router DOM, Axios, CSS Modules/Plain CSS
